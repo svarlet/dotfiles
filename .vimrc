@@ -136,6 +136,7 @@ syntax on
 colorscheme badwolf
 
 set mouse=a
+set ttymouse=xterm2
 
 " set the <leader> key to comma
 let mapleader=","
