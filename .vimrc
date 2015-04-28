@@ -36,6 +36,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-commentary'
+Bundle 'vim-ruby/vim-ruby'
+Plugin 'ecomba/vim-ruby-refactoring'
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -131,10 +135,13 @@ syntax on
 "set background=light
 colorscheme badwolf
 
-set mouse=ra
+set mouse=a
 
+" set the <leader> key to comma
+let mapleader=","
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_extensions = ['tag']
 "                       NerdTree Configuration                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeShowHidden=1
@@ -147,4 +154,24 @@ nnoremap <F4> :NERDTreeToggle<CR>
 "                       Tagbar Configuration                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F5> :TagbarToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       ctrlp Configuration                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_show_hidden=1
+set tags+=tags
+set tags+=gems.tags
+unlet g:ctrlp_extensions
+let g:ctrlp_extensions = ['tag']
+nnoremap <leader>. :CtrlPTag<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       Commentary  Configuration                            "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" use gc to comment or uncomment a motion or a visual selection
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       Vim Ruby Configuration                               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <leader>, <C-x><C-o>
 
