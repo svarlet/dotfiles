@@ -1,6 +1,6 @@
-autocmd BufRead *.as set filetype=actionscript
-autocmd BufRead *.mxml set filetype=mxml
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                 VUNDLE CONFIGURATION                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -40,6 +40,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
 Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'bling/vim-bufferline'
+
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -90,6 +92,10 @@ set expandtab
 " Automatically indent lines like the line above
 set autoindent
 
+" show invisible characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+
 " Enable line numbers
 set number
 
@@ -100,8 +106,9 @@ set list
 " Highlight searches
 set hlsearch
 
-" Ignore case of searches
+" Ignore case of searches unless upper case letter used
 set ignorecase
+set smartcase
 
 " Dynamic search
 set incsearch
@@ -128,20 +135,33 @@ set fileformat=unix
 set termencoding=utf-8
 set encoding=utf-8
 
+" allow hidden buffers
+set hidden
+
+" better command completion
+set wildmenu
+
 " Detects file updates and reload
 set autoread
 
 syntax on
-"set background=light
+set background=dark
 colorscheme badwolf
 
 set mouse=a
 set ttymouse=xterm2
 
+" where to save swp files, also ensure they can't overwrite each other
 set directory=$HOME/.vim/swapfiles//
+
+" unix file format
+set fileformat=unix
 
 " set the <leader> key to comma
 let mapleader=","
+
+autocmd BufRead *.as set filetype=actionscript
+autocmd BufRead *.mxml set filetype=mxml
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       NerdTree Configuration                               "
@@ -163,9 +183,10 @@ nnoremap <F5> :TagbarToggle<CR>
 let g:ctrlp_show_hidden=1
 set tags+=tags
 set tags+=gems.tags
-unlet g:ctrlp_extensions
+"unlet g:ctrlp_extensions
 let g:ctrlp_extensions = ['tag']
 nnoremap <leader>. :CtrlPTag<CR>
+let g:ctrlp_working_path_mode = 'ra'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       Commentary  Configuration                            "
@@ -176,4 +197,9 @@ nnoremap <leader>. :CtrlPTag<CR>
 "                       Vim Ruby Configuration                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap <leader>, <C-x><C-o>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                        Bufferline CONFIGURATION                            "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:bufferline_echo = 1
 
