@@ -138,11 +138,12 @@ colorscheme badwolf
 set mouse=a
 set ttymouse=xterm2
 
+set directory=$HOME/.vim/swapfiles//
+
 " set the <leader> key to comma
 let mapleader=","
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_extensions = ['tag']
 "                       NerdTree Configuration                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeShowHidden=1
