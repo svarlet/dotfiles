@@ -12,11 +12,13 @@ a notify="terminal-notifier -message "
 
 a gs="git status"
 a gcam="git commit -am "
+a gprgp="git pull --rebase; git push"
+a glog="git log --stat --graph"
 
 a mplayer="mplayer -msgcolor"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
-export FLASH_PLAYER_HOME="/Users/plumbee/Plumbee/Tools/Flash Player Debugger.app/Contents/MacOS"
+export FLASH_PLAYER_HOME="~/Plumbee/tools/Flash\ Player\ Debugger.app/Contents/MacOS"
 export M2_HOME=/opt/local/share/java/apache-maven-3.1.1/
 export AIR_HOME=/Users/plumbee/Plumbee/Tools/AIRSDK_16/bin/
 
@@ -32,6 +34,7 @@ export MAVEN_OPTS="-Xmx1024m -Xms256m"
 export CLICOLOR=true
 export LSCOLORS="Hxfxxxxxgxxxxxxxxxxxxx"
 export LS_COLORS=$LSCOLORS
+export TERM=xterm-256color
 
 HISTFILE=~/.history
 HISTSIZE=1000
