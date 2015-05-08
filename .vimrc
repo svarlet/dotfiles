@@ -41,7 +41,8 @@ Plugin 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'bling/vim-bufferline'
-
+Plugin 'airblade/vim-gitgutter'
+Plugin 'rking/ag.vim'
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -91,10 +92,6 @@ set expandtab
 
 " Automatically indent lines like the line above
 set autoindent
-
-" show invisible characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
 
 " Enable line numbers
 set number
@@ -150,6 +147,14 @@ colorscheme badwolf
 
 set mouse=a
 set ttymouse=xterm2
+
+" more natural moves between splits
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " where to save swp files, also ensure they can't overwrite each other
 set directory=$HOME/.vim/swapfiles//
