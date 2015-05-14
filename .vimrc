@@ -43,6 +43,9 @@ Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'bling/vim-bufferline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
+Plugin 'msanders/snipmate.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
