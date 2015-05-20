@@ -175,6 +175,12 @@ autocmd BufRead *.as set filetype=actionscript
 autocmd BufRead *.mxml set filetype=mxml
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       80 width column marker                               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+set colorcolumn=81
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       NerdTree Configuration                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeShowHidden=1
