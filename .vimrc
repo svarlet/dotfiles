@@ -45,6 +45,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'blueshirts/darcula'
 
 "
 " " All of your Plugins must be added before the following line
@@ -149,7 +150,8 @@ set relativenumber
 
 syntax on
 set background=dark
-colorscheme badwolf
+"colorscheme badwolfi "Cool very dark theme
+colorscheme darcula "Jetbrain darkula theme
 
 set mouse=a
 set ttymouse=xterm2
@@ -189,8 +191,8 @@ inoremap <right> <nop>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       80 width column marker                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
-set colorcolumn=81
+"highlight ColorColumn ctermbg=235 guibg=#2c2d27
+"set colorcolumn=81
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       NerdTree Configuration                               "

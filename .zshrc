@@ -18,9 +18,9 @@ a glog="git log --stat --graph"
 a mplayer="mplayer -msgcolor"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
-export FLASH_PLAYER_HOME="~/Plumbee/tools/Flash\ Player\ Debugger.app/Contents/MacOS"
+export FLASH_PLAYER_HOME=~/Plumbee/tools/Flash\ Player\ Debugger.app/Contents/MacOS
 export M2_HOME=/opt/local/share/java/apache-maven-3.1.1/
-export AIR_HOME=/Users/plumbee/Plumbee/Tools/AIRSDK_16/bin/
+export AIR_HOME=/Users/Archaon/Plumbee/sdk/AIRSDK_16/bin/
 
 export PATH=$JAVA_HOME:$FLASH_PLAYER_HOME:$AIR_HOME
 export PATH=/usr/local/bin/:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
@@ -34,7 +34,8 @@ export MAVEN_OPTS="-Xmx1024m -Xms256m"
 export CLICOLOR=true
 export LSCOLORS="Hxfxxxxxgxxxxxxxxxxxxx"
 export LS_COLORS=$LSCOLORS
-export TERM=xterm-256color
+
+export TERM=screen-256color
 
 HISTFILE=~/.history
 HISTSIZE=1000
@@ -60,3 +61,4 @@ PROMPT='$host $cpath$end $(git_super_status)$end> '
 
 unset MANPATH
 clear
+cd
