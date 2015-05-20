@@ -144,6 +144,9 @@ set wildmenu
 " Detects file updates and reload
 set autoread
 
+" Switches to line numbers relative to current line
+set relativenumber
+
 syntax on
 set background=dark
 colorscheme badwolf
