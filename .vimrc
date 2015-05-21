@@ -201,7 +201,7 @@ inoremap <right> <nop>
 let g:NERDTreeShowHidden=1
 let g:NERDTreeSortHiddenFirst=1
 let g:NERDTreeHighlightCursorLine=1
-
+let g:NERDTreeWinSize=50
 nnoremap <F4> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
