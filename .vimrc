@@ -33,14 +33,14 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
-Plugin 'ecomba/vim-ruby-refactoring'
-Plugin 'bling/vim-bufferline'
+"Plugin 'ecomba/vim-ruby-refactoring'
+"Plugin 'bling/vim-bufferline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'msanders/snipmate.vim'
@@ -81,6 +81,12 @@ let g:airline_left_sep = ''
   let g:airline_symbols.branch = ''
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+"
+" " Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 
 " Wrap long lines
@@ -190,12 +196,6 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                       80 width column marker                               "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"highlight ColorColumn ctermbg=235 guibg=#2c2d27
-"set colorcolumn=81
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       NerdTree Configuration                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeShowHidden=1
@@ -203,11 +203,6 @@ let g:NERDTreeSortHiddenFirst=1
 let g:NERDTreeHighlightCursorLine=1
 let g:NERDTreeWinSize=50
 nnoremap <F4> :NERDTreeToggle<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                       Tagbar Configuration                                 "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F5> :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       ctrlp Configuration                                 "
@@ -233,5 +228,5 @@ inoremap <leader>, <C-x><C-o>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                        Bufferline CONFIGURATION                            "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:bufferline_echo = 0
+" let g:bufferline_echo = 0
 
