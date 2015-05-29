@@ -17,6 +17,7 @@ a glog="git log --stat --graph"
 
 a mplayer="mplayer -msgcolor"
 a vim='mvim -v'
+a vi='mvim -v'
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 export FLASH_PLAYER_HOME=~/Plumbee/tools/Flash\ Player.app/Contents/MacOS
