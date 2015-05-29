@@ -30,7 +30,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'user/L9', {'name': 'newL9'}
 
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 "Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'majutsushi/tagbar'
@@ -41,7 +41,7 @@ Plugin 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
 "Plugin 'ecomba/vim-ruby-refactoring'
 "Plugin 'bling/vim-bufferline'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -104,6 +104,8 @@ set cursorline
 set tabstop=2 shiftwidth=2
 set expandtab
 
+set backspace=indent,eol,start
+
 " Automatically indent lines like the line above
 set autoindent
 
@@ -139,6 +141,12 @@ set visualbell
 " Always show status line
 set laststatus=2
 
+" Keep at least 4 lines below cursor"
+set scrolloff=4
+
+" improve performance
+set lazyredraw
+
 " End of line characters
 set fileformat=unix
 
@@ -157,6 +165,9 @@ set autoread
 
 " Switches to line numbers relative to current line
 set relativenumber
+if v:version > 703
+  set number " hybrid relative and absolute for current line
+endif"
 
 syntax on
 set background=dark

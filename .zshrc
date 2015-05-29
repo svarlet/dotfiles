@@ -16,9 +16,10 @@ a gprgp="git pull --rebase; git push"
 a glog="git log --stat --graph"
 
 a mplayer="mplayer -msgcolor"
+a vim='mvim -v'
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
-export FLASH_PLAYER_HOME=~/Plumbee/tools/Flash\ Player\ Debugger.app/Contents/MacOS
+export FLASH_PLAYER_HOME=~/Plumbee/tools/Flash\ Player.app/Contents/MacOS
 export M2_HOME=/opt/local/share/java/apache-maven-3.1.1/
 export AIR_HOME=/Users/Archaon/Plumbee/sdk/AIRSDK_16/bin/
 
