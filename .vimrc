@@ -67,7 +67,9 @@ filetype plugin indent on    " required
 
 
 
-" Configuration of vim airline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                             Airline                                        "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline\ 11
 let g:airline_powerline_fonts = 1
   if !exists('g:airline_symbols')
@@ -84,10 +86,12 @@ let g:airline_left_sep = ''
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
-"
-" " Show just the filename
+" Show buffer number
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-
+" Fixes a delay that happens when leaving insert mode
+set timeoutlen=50
 
 " Wrap long lines
 set wrap
