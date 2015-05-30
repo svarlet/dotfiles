@@ -212,10 +212,10 @@ inoremap <right> <nop>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           Custom commands                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader="\<Space>"
+let mapleader=","
 
-nmap <Leader>j ]m
-nmap <Leader>k [m
+nmap <C-j> ]m
+nmap <C-k> [m
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       NerdTree Configuration                               "
@@ -234,7 +234,6 @@ set tags+=tags
 set tags+=gems.tags
 "unlet g:ctrlp_extensions
 let g:ctrlp_extensions = ['tag']
-nnoremap <leader>. :CtrlPTag<CR>
 let g:ctrlp_working_path_mode = 'ra'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
