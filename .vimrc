@@ -47,6 +47,8 @@ Plugin 'msanders/snipmate.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'blueshirts/darcula'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -192,9 +194,6 @@ set directory=$HOME/.vim/swapfiles//
 " unix file format
 set fileformat=unix
 
-" set the <leader> key to comma
-let mapleader=","
-
 autocmd BufRead *.as set filetype=actionscript
 autocmd BufRead *.mxml set filetype=mxml
 
@@ -209,6 +208,14 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           Custom commands                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader="\<Space>"
+
+nmap <Leader>j ]m
+nmap <Leader>k [m
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       NerdTree Configuration                               "
