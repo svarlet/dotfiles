@@ -214,15 +214,27 @@ inoremap <right> <nop>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
 
-" Move to Next/Previous methods
+" Move to Next methods - Mac Keyboard - english layout
 nmap ∆ ]m
 nmap ˚ [m
 
-" Move line up/down in normal and insert mode
+" Move to previous methods - Mac Keyboard - french layout
+nmap Ï ]m
+nmap È [m
+
+" Move line up/down in normal and insert mode - Mac Keyboard - english layout
 nnoremap Ô :m .+1<CR>==
-nnoremap  :m .-2<CR>==
 inoremap Ô <Esc>:m .+1<CR>==gi
+nnoremap  :m .-2<CR>==
 inoremap  <Esc>:m .-2<CR>==gi
+
+" Move line up/down in normal and insert mode - Mac Keyboard - english layout
+" Move line up in normal and insert mode
+nnoremap Í :m .+1<CR>==
+inoremap Í <Esc>:m .+1<CR>==gi
+nnoremap Ë :m .-2<CR>==
+inoremap Ë <Esc>:m .-2<CR>==gi
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       NerdTree Configuration                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
