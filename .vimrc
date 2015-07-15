@@ -266,7 +266,7 @@ set tags+=gems.tags
 "unlet g:ctrlp_extensions
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_working_path_mode = 'ra'
-
+let g:ctrlp_open_new_file = 'r'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       Commentary  Configuration                            "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -282,4 +282,14 @@ inoremap <leader>, <C-x><C-o>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set timeoutlen=2000
 set ttimeoutlen=1000
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       Mappings to handle tabs                               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <right> gt
+nnoremap <left>  gT
+nnoremap <C-t>   :tabnew<CR>
+inoremap <right> <Esc>gti
+inoremap <left>  <Esc>gTi
+inoremap <C-t>   <Esc>:tabnew<CR>
 
