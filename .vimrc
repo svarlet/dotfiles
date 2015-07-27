@@ -50,6 +50,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
+Plugin 'carlosgaldino/elixir-snippets'
+
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -79,8 +81,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"Disables elixir syntax checking because it actually runs the code !
-"let g:syntastic_enable_elixir_checker = 1
+let g:syntastic_enable_elixir_checker = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             Airline                                        "
@@ -266,7 +267,7 @@ set tags+=gems.tags
 "unlet g:ctrlp_extensions
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_working_path_mode = 'ra'
-
+let g:ctrlp_open_new_file = 'r'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       Commentary  Configuration                            "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -282,4 +283,14 @@ inoremap <leader>, <C-x><C-o>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set timeoutlen=2000
 set ttimeoutlen=1000
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       Mappings to handle tabs                               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <right> gt
+nnoremap <left>  gT
+nnoremap <C-t>   :tabnew<CR>
+inoremap <right> <Esc>gti
+inoremap <left>  <Esc>gTi
+inoremap <C-t>   <Esc>:tabnew<CR>
 
