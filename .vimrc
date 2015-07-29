@@ -30,7 +30,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'user/L9', {'name': 'newL9'}
 
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 "Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'majutsushi/tagbar'
@@ -41,7 +41,7 @@ Plugin 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
 "Plugin 'ecomba/vim-ruby-refactoring'
 "Plugin 'bling/vim-bufferline'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -51,7 +51,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
 Plugin 'carlosgaldino/elixir-snippets'
-
+Plugin 'kovisoft/slimv'
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -161,6 +161,7 @@ set laststatus=2
 set scrolloff=4
 
 " improve performance
+set ttyfast
 set lazyredraw
 
 " End of line characters

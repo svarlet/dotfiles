@@ -28,6 +28,22 @@
      ;;        shell-default-position 'bottom)
      ;; syntax-checking
      version-control
+     markdown
+     syntax-checking
+     auto-completion
+     company-mode
+     erlang
+     elixir
+     git
+     dash
+     osx
+     html
+     org
+     colors
+     editorconfig
+     themes-megapack
+     perspectives
+     ruby
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -45,7 +61,7 @@
   "Initialization function.
 This function is called at the very startup of Spacemacs initialization
 before layers configuration."
-  ;; This setq-default sexp is an exhaustive list of all the supported
+ ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
    ;; Either `vim' or `emacs'. Evil is always enabled but if the variable
@@ -78,7 +94,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 10
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -134,7 +150,7 @@ before layers configuration."
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line.
    dotspacemacs-mode-line-unicode-symbols t
-   ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
+   ;; If non nil smooth scrolling (native-scrolling) is enabled. Smootn
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling t
@@ -160,6 +176,7 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (add-hook 'alchemist-mode-hook 'company-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
