@@ -30,7 +30,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'user/L9', {'name': 'newL9'}
 
 Plugin 'bling/vim-airline'
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 "Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'majutsushi/tagbar'
@@ -40,8 +40,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
 "Plugin 'ecomba/vim-ruby-refactoring'
-"Plugin 'bling/vim-bufferline'
-"Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-bufferline'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -52,6 +52,8 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
 Plugin 'carlosgaldino/elixir-snippets'
 Plugin 'kovisoft/slimv'
+Plugin 'mattreduce/vim-mix'
+
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -106,6 +108,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+" Use flat separators
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
 " Fixes a delay that happens when leaving insert mode
 set timeoutlen=50
 
@@ -129,7 +136,9 @@ set autoindent
 set number
 
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+"set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set lcs=tab:\ \ ,trail:\ ,eol:\ ,nbsp:_
+
 set list
 
 " Highlight searches
