@@ -39,11 +39,15 @@ Plugin 'ervandew/supertab'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
-"Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'bling/vim-bufferline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
-Plugin 'msanders/snipmate.vim'
+
+"snipmate and its dependencies
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'blueshirts/darcula'
 Plugin 'tpope/vim-surround'
@@ -90,17 +94,17 @@ let g:syntastic_enable_elixir_checker = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline\ 11
 let g:airline_powerline_fonts = 1
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 
 let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
