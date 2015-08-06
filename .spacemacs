@@ -50,6 +50,7 @@
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(darcula-theme)
+   dotspacemacs-additional-packages '(actionscript-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -82,11 +83,11 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(hickey
+   dotspacemacs-themes '(solarized-light
+                         hickey
                          flatui
                          solarized-dark
                          spacemacs-dark
-                         solarized-light
                          darcula
                          spacemacs-light
                          leuven
@@ -100,7 +101,7 @@ before layers configuration."
                                :size 12
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.2)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -179,10 +180,12 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (add-hook 'alchemist-mode-hook 'company-mode)
   (global-linum-mode) ;Show line numbers
   (linum-relative-toggle) ;Show line numbers relative to current line
   (add-hook 'alchemist-mode-hook 'company-mode)
   (blink-cursor-mode)
+  (setq powerline-default-separator 'nil)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
