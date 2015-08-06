@@ -82,11 +82,13 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(darcula
-                         solarized-light
+   dotspacemacs-themes '(hickey
+                         flatui
                          solarized-dark
-                         spacemacs-light
                          spacemacs-dark
+                         solarized-light
+                         darcula
+                         spacemacs-light
                          leuven
                          monokai
                          zenburn)
@@ -94,8 +96,8 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Menlo"
-                               :size 10
+   dotspacemacs-default-font '("Monaco"
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -180,6 +182,7 @@ layers configuration."
   (global-linum-mode) ;Show line numbers
   (linum-relative-toggle) ;Show line numbers relative to current line
   (add-hook 'alchemist-mode-hook 'company-mode)
+  (blink-cursor-mode)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
