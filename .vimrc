@@ -208,6 +208,9 @@ colorscheme darcula "Jetbrain darkula theme
 set mouse=a
 set ttymouse=xterm2
 
+"Support for 256 colors
+set t_Co=256
+
 " more natural moves between splits
 set splitbelow
 set splitright
