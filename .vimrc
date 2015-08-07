@@ -201,9 +201,9 @@ endif"
 
 syntax on
 set background=dark
-"colorscheme solarized
+colorscheme solarized
 "colorscheme badwolf "Cool very dark theme
-colorscheme darcula "Jetbrain darkula theme
+"colorscheme darcula "Jetbrain darkula theme
 
 set mouse=a
 set ttymouse=xterm2
