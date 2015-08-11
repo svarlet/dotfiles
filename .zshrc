@@ -34,7 +34,7 @@ export MACOSX_DEPLOYMENT_TARGET=10.8
 export EDITOR="vim"
 bindkey -e
 
-export MAVEN_OPTS="-Xmx1024m -Xms256m"
+export MAVEN_OPTS="-Xmx2048m -Xms256m"
 
 export CLICOLOR=true
 export LSCOLORS="Hxfxxxxxgxxxxxxxxxxxxx"
