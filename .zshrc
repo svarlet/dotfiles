@@ -26,7 +26,7 @@ export AIR_HOME=/Users/Archaon/Plumbee/sdk/AIRSDK_16/bin/
 
 export PATH=$JAVA_HOME:$FLASH_PLAYER_HOME:$AIR_HOME
 export PATH=/usr/local/bin/:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql95/bin:$PATH
 
 export MANPATH=/usr/bin/manpath:/opt/local/share/man
 export MACOSX_DEPLOYMENT_TARGET=10.8
