@@ -92,7 +92,7 @@ let g:syntastic_enable_elixir_checker = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             Airline                                        "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline\ 11
+set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline\ 12
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
