@@ -115,6 +115,8 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Use flat separators
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+" vim-bufferline should not print to the statusline as well
+let g:bufferline_echo = 0
 
 
 " Fixes a delay that happens when leaving insert mode
