@@ -31,6 +31,9 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'carlosgaldino/elixir-snippets'
 Plug 'mattreduce/vim-mix'
 
+" HTML plugins
+Plug 'rstacruz/sparkup'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -215,6 +218,10 @@ let g:ctrlp_open_new_file = 'r'
 "                       Commentary  Configuration                            "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " use gc to comment or uncomment a motion or a visual selection
+" Examples:
+" gcw to comment a word
+" gcap to comment a paragraph
+" v3jgc to select the next 3 lines and comment them out
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       Vim Ruby Configuration                               "
