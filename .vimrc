@@ -208,9 +208,7 @@ colorscheme solarized
 "colorscheme darcula "Jetbrain darkula theme
 
 set mouse=a
-if !has('nvim')
-  set ttymouse=xterm2 
-endif
+set ttymouse=xterm2
 
 "Support for 256 colors
 set t_Co=256
@@ -269,13 +267,6 @@ nnoremap Í :m .+1<CR>==
 inoremap Í <Esc>:m .+1<CR>==gi
 nnoremap Ë :m .-2<CR>==
 inoremap Ë <Esc>:m .-2<CR>==gi
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                        NeoVim Configuration                                "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       NerdTree Configuration                               "
