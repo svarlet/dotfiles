@@ -80,8 +80,7 @@ set wrap
 " Highlight current line
 set cursorline
 
-" Make tabs as wide as 
-" two spaces
+" Make tabs as wide as two spaces
 set tabstop=2 shiftwidth=2
 set expandtab
 
@@ -89,7 +88,6 @@ set expandtab
 set number
 
 " Show “invisible” characters
-"set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set lcs=tab:\ \ ,trail:\ ,eol:\ ,nbsp:_
 
 set list
@@ -127,15 +125,10 @@ set hidden
 
 " Switches to line numbers relative to current line
 set relativenumber
-if v:version > 703
-  set number " hybrid relative and absolute for current line
-endif"
 
 syntax on
 set background=dark
 colorscheme solarized
-"colorscheme badwolf "Cool very dark theme
-"colorscheme darcula "Jetbrain darkula theme
 
 "Support for 256 colors
 set t_Co=256
