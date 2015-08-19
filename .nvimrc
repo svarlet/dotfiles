@@ -30,6 +30,7 @@ Plug 'tpope/vim-endwise'
 Plug 'elixir-lang/vim-elixir'
 Plug 'carlosgaldino/elixir-snippets'
 Plug 'mattreduce/vim-mix'
+Plug 'elzr/vim-json'
 
 " HTML plugins
 Plug 'rstacruz/sparkup'

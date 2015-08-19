@@ -57,6 +57,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'carlosgaldino/elixir-snippets'
 Plugin 'kovisoft/slimv'
 Plugin 'mattreduce/vim-mix'
+Plugin 'elzr/vim-json'
 
 "
 " " All of your Plugins must be added before the following line
