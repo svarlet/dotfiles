@@ -53,6 +53,7 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(darcula-theme)
    dotspacemacs-additional-packages '(actionscript-mode)
+   dotspacemacs-additional-packages '(elm-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -187,6 +188,22 @@ layers configuration."
   (linum-relative-toggle) ;Show line numbers relative to current line
   (blink-cursor-mode)
   (setq powerline-default-separator 'nil)
+  (add-to-list 'display-buffer-alist
+               `(,(rx bos (or
+                           "*rspec-compilation*"
+                           "*projectile-rails-compilation*"
+                           "*Bundler*"
+                           "*alchemist test report*"
+                           "*alchemist mix*"
+                           "*elixir help*"
+                           "*alchemist help*"
+                           "*mix*")
+                      eos)
+                 (display-buffer-reuse-window
+                  display-buffer-in-side-window)
+                 (reusable-frames . visible)
+                 (side            . bottom)
+                 (window-height   . 0.3)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
