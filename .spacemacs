@@ -177,6 +177,7 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  dotspacemacs-remap-Y-to-y$ nil
   )
 
 (defun dotspacemacs/config ()
