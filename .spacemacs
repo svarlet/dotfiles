@@ -31,7 +31,6 @@
      markdown
      syntax-checking
      auto-completion
-     company-mode
      erlang
      elixir
      git
@@ -52,6 +51,7 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(darcula-theme)
    dotspacemacs-additional-packages '(actionscript-mode)
+   dotspacemacs-additional-packages '(elm-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -187,6 +187,12 @@ layers configuration."
   (add-hook 'alchemist-mode-hook 'company-mode)
   (blink-cursor-mode)
   (setq powerline-default-separator 'nil)
+  (setq default-input-method "MacOSX")
+
+  (setq mac-command-modifier 'meta
+        mac-option-modifier nil
+        mac-allow-anti-aliasing t
+        mac-command-key-is-meta t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
