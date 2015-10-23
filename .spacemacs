@@ -44,6 +44,7 @@
      perspectives
      ruby
      company-mode
+     neotree
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -175,6 +176,7 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  dotspacemacs-remap-Y-to-y$ nil
   )
 
 (defun dotspacemacs/config ()
@@ -184,7 +186,6 @@ layers configuration."
   (add-hook 'alchemist-mode-hook 'company-mode)
   (global-linum-mode) ;Show line numbers
   (linum-relative-toggle) ;Show line numbers relative to current line
-  (add-hook 'alchemist-mode-hook 'company-mode)
   (blink-cursor-mode)
   (setq powerline-default-separator 'nil)
   (setq default-input-method "MacOSX")
@@ -193,6 +194,22 @@ layers configuration."
         mac-option-modifier nil
         mac-allow-anti-aliasing t
         mac-command-key-is-meta t)
+  (add-to-list 'display-buffer-alist
+               `(,(rx bos (or
+                           "*rspec-compilation*"
+                           "*projectile-rails-compilation*"
+                           "*Bundler*"
+                           "*alchemist test report*"
+                           "*alchemist mix*"
+                           "*elixir help*"
+                           "*alchemist help*"
+                           "*mix*")
+                      eos)
+                 (display-buffer-reuse-window
+                  display-buffer-in-side-window)
+                 (reusable-frames . visible)
+                 (side            . bottom)
+                 (window-height   . 0.3)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
