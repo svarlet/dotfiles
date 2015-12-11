@@ -31,7 +31,6 @@
      markdown
      syntax-checking
      auto-completion
-     company-mode
      erlang
      elixir
      git
