@@ -46,6 +46,7 @@
      ruby
      company-mode
      neotree
+     elm-mode
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -86,7 +87,8 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-dark
+   dotspacemacs-themes '(molokai
+                         solarized-dark
                          solarized-light
                          hickey
                          flatui
@@ -156,7 +158,7 @@ before layers configuration."
    ;; Transparency can be toggled through `toggle-transparency'.
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line.
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smootn
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen.
@@ -188,7 +190,7 @@ layers configuration."
   (global-linum-mode) ;Show line numbers
   (linum-relative-toggle) ;Show line numbers relative to current line
   (blink-cursor-mode)
-  (setq powerline-default-separator 'nil)
+  (setq powerline-default-separator 'alternate)
   (add-to-list 'display-buffer-alist
                `(,(rx bos (or
                            "*rspec-compilation*"
