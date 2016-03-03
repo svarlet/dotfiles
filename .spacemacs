@@ -41,7 +41,7 @@
      colors
      editorconfig
      themes-megapack
-     perspectives
+     spacemacs-layouts
      ruby
      company-mode
      neotree
@@ -82,7 +82,7 @@ before layers configuration."
    dotspacemacs-startup-banner 'official
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'."
-   dotspacemacs-startup-lists '(recents projects)
+   dotspacemacs-startup-lists '(projects)
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
@@ -101,9 +101,9 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Monaco"
-                               :size 12
-                               :weight normal
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 13
+                               :weight ultra-light
                                :width normal
                                :powerline-scale 1.2)
    ;; The leader key
@@ -177,19 +177,19 @@ before layers configuration."
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
    )
-  ;; User initialization goes here
-  dotspacemacs-remap-Y-to-y$ nil
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (add-hook 'alchemist-mode-hook 'company-mode)
   (global-linum-mode) ;Show line numbers
   (linum-relative-toggle) ;Show line numbers relative to current line
+  (turn-on-fci-mode) ;Show a vertical bar at 80 column
   (blink-cursor-mode)
-  (setq powerline-default-separator 'alternate)
+  (setq ns-use-srgb-colorspace nil)
+  (setq powerline-default-separator 'slant)
   (add-to-list 'display-buffer-alist
                `(,(rx bos (or
                            "*rspec-compilation*"
@@ -210,3 +210,19 @@ layers configuration."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/org/todo-list.org" "~/Dropbox/org/org-mode-survival.org"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
