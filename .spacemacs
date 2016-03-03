@@ -190,6 +190,12 @@ layers configuration."
   (blink-cursor-mode)
   (setq ns-use-srgb-colorspace nil)
   (setq powerline-default-separator 'slant)
+  ;; Sets the initial size of the frame (OS window) and the default size
+  ;; of subsequent frames
+  (setq initial-frame-alist '((width . 120) ; character
+                              (height . 80))) ; lines
+  (setq default-frame-alist '((width . 120) ; character
+                              (height . 80))) ; lines
   (add-to-list 'display-buffer-alist
                `(,(rx bos (or
                            "*rspec-compilation*"
