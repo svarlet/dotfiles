@@ -102,7 +102,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Monaco"
-                               :size 12
+                               :size 10
                                :weight normal
                                :width normal
                                :powerline-scale 1.2)
@@ -178,10 +178,9 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  dotspacemacs-remap-Y-to-y$ nil
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -206,6 +205,11 @@ layers configuration."
                  (reusable-frames . visible)
                  (side            . bottom)
                  (window-height   . 0.3)))
+  (setq mac-option-modifier nil
+        mac-command-modifier 'meta
+        mac-option-key-is-meta nil
+        mac-command-key-is-meta 'meta
+        x-select-enable-clipboard t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
