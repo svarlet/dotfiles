@@ -30,7 +30,10 @@
      version-control
      markdown
      syntax-checking
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-tab-key-behavior 'complete)
      erlang
      elixir
      git
@@ -39,21 +42,20 @@
      html
      org
      colors
-     editorconfig
      themes-megapack
      spacemacs-layouts
      ruby
-     company-mode
-     neotree
-     elm-mode
+     elm
+     csharp
+     shell-scripts
+     java
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(darcula-theme)
-   dotspacemacs-additional-packages '(actionscript-mode)
-   dotspacemacs-additional-packages '(elm-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -86,23 +88,27 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(molokai
-                         solarized-dark
-                         solarized-light
-                         hickey
-                         flatui
-                         spacemacs-dark
-                         darcula
-                         spacemacs-light
-                         leuven
-                         monokai
-                         zenburn)
+   dotspacemacs-themes '(sanityinc-tomorrow-night
+                         sanityinc-tomorrow-day)
+                         ;; molokai
+                         ;; leuven
+                         ;; hickey
+                         ;; solarized-dark
+                         ;; solarized-light
+                         ;; hickey
+                         ;; flatui
+                         ;; spacemacs-dark
+                         ;; darcula
+                         ;; spacemacs-light
+                         ;; leuven
+                         ;; monokai
+                         ;; zenburn)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 14
                                :weight ultra-light
                                :width normal
                                :powerline-scale 1.2)
@@ -193,9 +199,9 @@ layers configuration."
   ;; Sets the initial size of the frame (OS window) and the default size
   ;; of subsequent frames
   (setq initial-frame-alist '((width . 120) ; character
-                              (height . 80))) ; lines
+                              (height . 70))) ; lines
   (setq default-frame-alist '((width . 120) ; character
-                              (height . 80))) ; lines
+                              (height . 70))) ; lines
   (add-to-list 'display-buffer-alist
                `(,(rx bos (or
                            "*rspec-compilation*"
@@ -212,6 +218,13 @@ layers configuration."
                  (reusable-frames . visible)
                  (side            . bottom)
                  (window-height   . 0.3)))
+  ;; company
+  (global-company-mode)
+  ;;(setq-default company-minimum-prefix-length 1)
+  (global-set-key (kbd "C-SPC") 'company-complete)
+
+  (setq eclim-eclipse-dirs "~/eclipse/Eclipse.app/Contents/Eclipse"
+        eclim-executable "~/eclipse/Eclipse.app/Contents/Eclipse/eclim")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -224,11 +237,11 @@ layers configuration."
  '(org-agenda-files
    (quote
     ("~/Dropbox/org/todo-list.org" "~/Dropbox/org/org-mode-survival.org"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2"))))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2"))))
+;;  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+;;  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
