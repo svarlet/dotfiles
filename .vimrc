@@ -49,7 +49,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'blueshirts/darcula'
+"Plugin 'blueshirts/darcula'
+Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'elixir-lang/vim-elixir'
@@ -58,6 +59,7 @@ Plugin 'carlosgaldino/elixir-snippets'
 Plugin 'kovisoft/slimv'
 Plugin 'mattreduce/vim-mix'
 Plugin 'elzr/vim-json'
+Plugin 'othree/xml.vim'
 
 "
 " " All of your Plugins must be added before the following line
@@ -204,7 +206,8 @@ endif"
 
 syntax on
 set background=dark
-colorscheme solarized
+colorscheme molokai
+"colorscheme solarized
 "colorscheme badwolf "Cool very dark theme
 "colorscheme darcula "Jetbrain darkula theme
 

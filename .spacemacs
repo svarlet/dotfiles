@@ -25,6 +25,10 @@
      version-control
      markdown
      syntax-checking
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-tab-key-behavior 'complete)
      erlang
      elixir
      git
@@ -36,15 +40,16 @@
      spacemacs-layouts
      ruby
      elm
-     auto-completion
+     csharp
+     shell-scripts
      java
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(darcula-theme)
-   dotspacemacs-additional-packages '(actionscript-mode)
    dotspacemacs-additional-packages '(editorconfig)
    dotspacemacs-additional-packages '(neotree)
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -80,8 +85,8 @@ before layers configuration."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(sanityinc-tomorrow-night
-                         ;;leuven
                          sanityinc-tomorrow-day
+                         ;;leuven
                          ;;molokai
                          ;;darcula
                          )
@@ -199,21 +204,29 @@ layers configuration."
                  (display-buffer-reuse-window
                   display-buffer-in-side-window)
                  (reusable-frames . visible)
-                 (side            . right)
-                 (window-width    . 0.3)))
+                 (side            . bottom)
+                 (window-height   . 0.3)))
+
   ;; Fix the alt/cmd keys on mac
   (setq mac-option-modifier nil
         mac-command-modifier 'meta
         mac-option-key-is-meta nil
         mac-command-key-is-meta 'meta
         x-select-enable-clipboard t)
+
   ;; Disable fringe at end of file
   (global-vi-tilde-fringe-mode -1)
-  ;; Try to set the tab key to trigger the snippet 
-  (define-key yas-minor-mode-map (kbd "\t") 'yas-expand)
+
   ;; JAVA, Eclipse and Eclim settings
   (setq eclim-eclipse-dirs "~/eclipse/java-neon/Eclipse.app/Contents/Eclipse"
         eclim-executable "~/eclipse/java-neon/Eclipse.app/Contents/Eclipse/eclim"))
+  
+  ;; company
+  (global-company-mode)
+  ;;(setq-default company-minimum-prefix-length 1)
+  (global-set-key (kbd "C-SPC") 'company-complete)
+
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -227,3 +240,11 @@ layers configuration."
  '(org-agenda-files
    (quote
     ("~/Dropbox/org/todo-list.org" "~/Dropbox/org/org-mode-survival.org"))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2"))))
+;;  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+;;  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
