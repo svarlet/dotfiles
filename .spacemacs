@@ -219,8 +219,8 @@ layers configuration."
 
   ;; JAVA, Eclipse and Eclim settings
   (setq eclim-eclipse-dirs "~/eclipse/java-neon/Eclipse.app/Contents/Eclipse"
-        eclim-executable "~/eclipse/java-neon/Eclipse.app/Contents/Eclipse/eclim"))
-  
+        eclim-executable "~/eclipse/java-neon/Eclipse.app/Contents/Eclipse/eclim")
+
   ;; company
   (global-company-mode)
   ;;(setq-default company-minimum-prefix-length 1)
