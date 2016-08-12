@@ -31,7 +31,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
@@ -206,7 +206,7 @@ endif"
 
 syntax on
 set background=dark
-colorscheme molokai
+colorscheme Tomorrow-Night
 "colorscheme solarized
 "colorscheme badwolf "Cool very dark theme
 "colorscheme darcula "Jetbrain darkula theme
