@@ -17,35 +17,27 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     ;; git
-     ;; markdown
-     ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; syntax-checking
      version-control
      markdown
      syntax-checking
-     auto-completion
      erlang
      elixir
      git
-     dash
-     osx
      html
+     osx
      org
      colors
-     editorconfig
      themes-megapack
      spacemacs-layouts
      ruby
-     company-mode
-     neotree
-     elm-mode
+     elm
+     auto-completion
+     java
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -53,7 +45,8 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(darcula-theme)
    dotspacemacs-additional-packages '(actionscript-mode)
-   dotspacemacs-additional-packages '(elm-mode)
+   dotspacemacs-additional-packages '(editorconfig)
+   dotspacemacs-additional-packages '(neotree)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -86,24 +79,19 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(molokai
-                         solarized-dark
-                         solarized-light
-                         hickey
-                         flatui
-                         spacemacs-dark
-                         darcula
-                         spacemacs-light
-                         leuven
-                         monokai
-                         zenburn)
+   dotspacemacs-themes '(sanityinc-tomorrow-night
+                         ;;leuven
+                         sanityinc-tomorrow-day
+                         ;;molokai
+                         ;;darcula
+                         )
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
-                               :weight ultra-light
+                               :size 12
+                               :weight regular
                                :width normal
                                :powerline-scale 1.2)
    ;; The leader key
@@ -194,9 +182,9 @@ layers configuration."
   ;; Sets the initial size of the frame (OS window) and the default size
   ;; of subsequent frames
   (setq initial-frame-alist '((width . 120) ; character
-                              (height . 80))) ; lines
+                              (height . 60))) ; lines
   (setq default-frame-alist '((width . 120) ; character
-                              (height . 80))) ; lines
+                              (height . 60))) ; lines
   (add-to-list 'display-buffer-alist
                `(,(rx bos (or
                            "*rspec-compilation*"
@@ -211,30 +199,31 @@ layers configuration."
                  (display-buffer-reuse-window
                   display-buffer-in-side-window)
                  (reusable-frames . visible)
-                 (side            . bottom)
-                 (window-height   . 0.3)))
+                 (side            . right)
+                 (window-width    . 0.3)))
+  ;; Fix the alt/cmd keys on mac
   (setq mac-option-modifier nil
         mac-command-modifier 'meta
         mac-option-key-is-meta nil
         mac-command-key-is-meta 'meta
         x-select-enable-clipboard t)
-)
+  ;; Disable fringe at end of file
+  (global-vi-tilde-fringe-mode -1)
+  ;; Try to set the tab key to trigger the snippet 
+  (define-key yas-minor-mode-map (kbd "\t") 'yas-expand)
+  ;; JAVA, Eclipse and Eclim settings
+  (setq eclim-eclipse-dirs "~/eclipse/java-neon/Eclipse.app/Contents/Eclipse"
+        eclim-executable "~/eclipse/java-neon/Eclipse.app/Contents/Eclipse/eclim"))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
  '(org-agenda-files
    (quote
     ("~/Dropbox/org/todo-list.org" "~/Dropbox/org/org-mode-survival.org"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2"))))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
