@@ -52,6 +52,7 @@
    dotspacemacs-additional-packages '(darcula-theme)
    dotspacemacs-additional-packages '(editorconfig)
    dotspacemacs-additional-packages '(neotree)
+   dotspacemacs-additional-packages '(ox-confluence)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -95,7 +96,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 12
+                               :size 14
                                :weight regular
                                :width normal
                                :powerline-scale 1.2)
@@ -218,14 +219,39 @@ layers configuration."
   (global-vi-tilde-fringe-mode -1)
 
   ;; JAVA, Eclipse and Eclim settings
-  (setq eclim-eclipse-dirs "~/eclipse/java-neon/Eclipse.app/Contents/Eclipse"
-        eclim-executable "~/eclipse/java-neon/Eclipse.app/Contents/Eclipse/eclim")
+  (setq eclim-eclipse-dirs "~/eclipse/Eclipse.app/Contents/Eclipse"
+        eclim-executable "~/eclipse/Eclipse.app/Contents/Eclipse/eclim")
 
   ;; company
   (global-company-mode)
   ;;(setq-default company-minimum-prefix-length 1)
   (global-set-key (kbd "C-SPC") 'company-complete)
 
+  ;; neotree - force width
+  (setq neo-window-width 40)
+
+  ;; neotree - fix to prevent it from opening twice sometimes
+  (when neo-persist-show
+    (add-hook 'popwin:before-popup-hook
+              (lambda () (setq neo-persist-show nil)))
+    (add-hook 'popwin:after-popup-hook
+              (lambda () (setq neo-persist-show t))))
+
+  ;; neotree - when neotree opens, find current file and jumps to node
+  (setq neo-smart-open t)
+
+  ;; neotree - show VCS status
+  (setq neo-vc-integration '(face))
+
+
+  ;; org-mode - load the confluence exporter backend
+  (with-eval-after-load 'org
+    (require 'ox-confluence))
+
+  ;; neotree - when switching projects with projectile, make neotree change root
+  (setq projectile-switch-project-action 'neotree-projectile-action)
+
+  (spacemacs/toggle-automatic-symbol-highlight)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
