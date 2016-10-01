@@ -200,13 +200,14 @@ layers configuration."
                            "*alchemist mix*"
                            "*elixir help*"
                            "*alchemist help*"
+                           "*compilation*"
                            "*mix*")
                       eos)
                  (display-buffer-reuse-window
                   display-buffer-in-side-window)
                  (reusable-frames . visible)
                  (side            . bottom)
-                 (window-height   . 0.3)))
+                 (window-height   . 0.2)))
 
   ;; Fix the alt/cmd keys on mac
   (setq mac-option-modifier nil
