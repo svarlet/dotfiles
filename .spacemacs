@@ -45,7 +45,8 @@
      java
      yaml
      scala
-     dockerfile
+     docker
+     haskell
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -180,6 +181,10 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+  (add-to-list 'exec-path "~/.local/bin/")
+  (setq-default dotspacemacs-configuration-layers
+                '((haskell :variables haskell-process-type 'stack-ghci))) 
   (add-hook 'alchemist-mode-hook 'company-mode)
   (global-linum-mode) ;Show line numbers
   (linum-relative-toggle) ;Show line numbers relative to current line
