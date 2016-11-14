@@ -72,6 +72,7 @@ values."
      yaml
      scala
      docker
+     haskell
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -309,51 +310,44 @@ values."
                          dotspacemacs-whitespace-cleanup 'trailing
                          ))
 
-  (defun dotspacemacs/user-init ()
-    "Initialization function for user code.
-It is called immediately after `dotspacemacs/init', before layer configuration
-executes.
- This function is mostly useful for variables that need to be set
-before packages are loaded. If you are unsure, you should try in setting them in
-`dotspacemacs/user-config' first."
-    )
-
-  (defun dotspacemacs/user-config ()
-    "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
-layers configuration.
-This is the place where most of your configurations should be done. Unless it is
-explicitly specified that a variable should be set before a package is loaded,
-you should place your code here."
-    (add-hook 'alchemist-mode-hook 'company-mode)
-    (global-linum-mode) ;Show line numbers
-    (turn-on-fci-mode) ;Show a vertical bar at 80 column
-    (blink-cursor-mode)
-    (setq ns-use-srgb-colorspace nil)
-    (setq powerline-default-separator 'slant)
-    ;; Sets the initial size of the frame (OS window) and the default size
-    ;; of subsequent frames
-    (setq initial-frame-alist '((width . 120) ; character
-                                (height . 60))) ; lines
-    (setq default-frame-alist '((width . 120) ; character
-                                (height . 60))) ; lines
-    (add-to-list 'display-buffer-alist
-                 `(,(rx bos (or
-                             "*rspec-compilation*"
-                             "*projectile-rails-compilation*"
-                             "*Bundler*"
-                             "*alchemist test report*"
-                             "*alchemist mix*"
-                             "*elixir help*"
-                             "*alchemist help*"
-                             "*compilation*"
-                             "*mix*")
-                        eos)
-                   (display-buffer-reuse-window
-                    display-buffer-in-side-window)
-                   (reusable-frames . visible)
-                   (side            . bottom)
-                   (window-height   . 0.2)))
+(defun dotspacemacs/user-config ()
+  "Configuration function.
+ This function is called at the very end of Spacemacs initialization after
+layers configuration."
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+  (add-to-list 'exec-path "~/.local/bin/")
+  (setq-default dotspacemacs-configuration-layers
+                '((haskell :variables haskell-process-type 'stack-ghci))) 
+  (add-hook 'alchemist-mode-hook 'company-mode)
+  (global-linum-mode) ;Show line numbers
+  (linum-relative-toggle) ;Show line numbers relative to current line
+  (turn-on-fci-mode) ;Show a vertical bar at 80 column
+  (blink-cursor-mode)
+  (setq ns-use-srgb-colorspace nil)
+  (setq powerline-default-separator 'slant)
+  ;; Sets the initial size of the frame (OS window) and the default size
+  ;; of subsequent frames
+  (setq initial-frame-alist '((width . 120) ; character
+                              (height . 60))) ; lines
+  (setq default-frame-alist '((width . 120) ; character
+                              (height . 60))) ; lines
+  (add-to-list 'display-buffer-alist
+               `(,(rx bos (or
+                           "*rspec-compilation*"
+                           "*projectile-rails-compilation*"
+                           "*Bundler*"
+                           "*alchemist test report*"
+                           "*alchemist mix*"
+                           "*elixir help*"
+                           "*alchemist help*"
+                           "*compilation*"
+                           "*mix*")
+                      eos)
+                 (display-buffer-reuse-window
+                  display-buffer-in-side-window)
+                 (reusable-frames . visible)
+                 (side            . bottom)
+                 (window-height   . 0.2)))
 
     ;; Fix the alt/cmd keys on mac
     (setq mac-option-modifier nil
