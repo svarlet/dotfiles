@@ -268,7 +268,7 @@ values."
                          ;; If non nil show the color guide hint for transient state keys. (default t)
                          dotspacemacs-show-transient-state-color-guide t
                          ;; If non nil unicode symbols are displayed in the mode line. (default t)
-                         dotspacemacs-mode-line-unicode-symbols t
+                         dotspacemacs-mode-line-unicode-symbols nil
                          ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
                          ;; scrolling overrides the default behavior of Emacs which recenters point
                          ;; when it reaches the top or bottom of the screen. (default t)
@@ -317,10 +317,8 @@ layers configuration."
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
   (add-to-list 'exec-path "~/.local/bin/")
   (setq-default dotspacemacs-configuration-layers
-                '((haskell :variables haskell-process-type 'stack-ghci))) 
+                '((haskell :variables haskell-process-type 'stack-ghci)))
   (add-hook 'alchemist-mode-hook 'company-mode)
-  (global-linum-mode) ;Show line numbers
-  (linum-relative-toggle) ;Show line numbers relative to current line
   (turn-on-fci-mode) ;Show a vertical bar at 80 column
   (blink-cursor-mode)
   (setq ns-use-srgb-colorspace nil)
