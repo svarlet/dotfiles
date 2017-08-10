@@ -36,7 +36,8 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
+     (helm :variables
+           helm-buffer-max-length nil)
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
@@ -51,34 +52,42 @@ values."
      ;; version-control
      version-control
      markdown
-     syntax-checking
+     (syntax-checking :variables
+                      syntax-checking-enable-by-default t
+                      syntax-checking-enable-tooltips nil)
      (auto-completion :variables
+                      spacemacs-default-company-backends '(company-files company-capf)
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t
                       auto-completion-tab-key-behavior 'complete)
      erlang
-     elixir
+     (elixir :variables
+             elixir-enable-compilation-checking t)
      git
      html
      osx
-     org
+     (org :variables
+          org-enable-github-support t)
      colors
      themes-megapack
      spacemacs-layouts
-     ruby
-     elm
+     (elm :variables
+          elm-format-on-save t
+          elm-format-command "elm-format-0.17"
+          elm-sort-imports-on-save t)
      shell-scripts
-     java
      yaml
-     scala
      docker
-     haskell
+     emacs-lisp
+     graphviz
+     restclient
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(neotree)
+   dotspacemacs-additional-packages '(neotree ox-gfm)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -150,7 +159,9 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(sanityinc-tomorrow-night
+   dotspacemacs-themes '(material
+                         material-light
+                         sanityinc-tomorrow-night
                          sanityinc-tomorrow-day
                          ;;leuven
                          ;;molokai)
@@ -160,7 +171,7 @@ values."
                          ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
                          ;; quickly tweak the mode-line size to make separators look not too crappy.
                          dotspacemacs-default-font '("Source Code Pro"
-                                                     :size 12
+                                                     :size 11
                                                      :weight light
                                                      :width normal
                                                      :powerline-scale 1.1)
@@ -327,34 +338,43 @@ layers configuration."
   (add-to-list 'exec-path "~/.local/bin/")
   (setq-default dotspacemacs-configuration-layers
                 '((haskell :variables haskell-process-type 'stack-ghci)))
+
+  ;; elixir - alchemist
   (add-hook 'alchemist-mode-hook 'company-mode)
-  (turn-on-fci-mode) ;Show a vertical bar at 80 column
+
+  ;; show a vertical bar at 80th column
+  (turn-on-fci-mode)
+
+  ;; make the cursor blink
   (blink-cursor-mode)
+
   (setq ns-use-srgb-colorspace nil)
+
   (setq powerline-default-separator 'slant)
+
   ;; Sets the initial size of the frame (OS window) and the default size
   ;; of subsequent frames
   (setq initial-frame-alist '((width . 120) ; character
                               (height . 60))) ; lines
   (setq default-frame-alist '((width . 120) ; character
                               (height . 60))) ; lines
+
+  ;; settings for position and size of specific windows
   (add-to-list 'display-buffer-alist
                `(,(rx bos (or
-                           "*rspec-compilation*"
-                           "*projectile-rails-compilation*"
-                           "*Bundler*"
                            "*alchemist test report*"
                            "*alchemist mix*"
                            "*elixir help*"
                            "*alchemist help*"
                            "*compilation*"
+                           "*IEx*"
                            "*mix*")
                       eos)
                  (display-buffer-reuse-window
                   display-buffer-in-side-window)
                  (reusable-frames . visible)
-                 (side            . bottom)
-                 (window-height   . 0.2)))
+                 (side            . right)
+                 (window-height   . 0.4)))
 
     ;; Fix the alt/cmd keys on mac
     (setq mac-option-modifier nil
@@ -394,18 +414,22 @@ layers configuration."
     ;; neotree - when switching projects with projectile, make neotree change root
     (setq projectile-switch-project-action 'neotree-projectile-action)
 
+    ;; org-mode - load the confluence exporter backend
+    (with-eval-after-load 'org
+      (require 'ox-confluence))
+
     (spacemacs/toggle-automatic-symbol-highlight)
     (spacemacs/toggle-auto-fill-mode-on)
-    )
-
-  ;; Do not write anything past this comment. This is where Emacs will
-  ;; auto-generate custom variable definitions.
+    (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-on)
+)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/Dropbox/org/todo-list.org"))))
+ '(package-selected-packages
+   (quote
+    (ob-elixir zonokai-theme zenburn-theme zen-and-art-theme yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spaceline powerline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode seti-theme scss-mode sass-mode reverse-theme reveal-in-osx-finder restclient-helm restart-emacs rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme purple-haze-theme pug-mode professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el pbcopy pastels-on-dark-theme paradox spinner ox-gfm osx-trash osx-dictionary orgit organic-green-theme org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download org-bullets open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme ob-restclient ob-http org-plus-contrib noctilux-theme niflheim-theme neotree naquadah-theme mustang-theme move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow madhat2r-theme macrostep lush-theme lorem-ipsum linum-relative link-hint light-soap-theme less-css-mode launchctl jbeans-theme jazz-theme ir-black-theme insert-shebang inkpot-theme info+ indent-guide hydra hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme haml-mode gruvbox-theme gruber-darker-theme graphviz-dot-mode grandshell-theme gotham-theme google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md gandalf-theme fuzzy flycheck-pos-tip flycheck-mix flycheck-elm flycheck-credo flycheck flx-ido flx flatui-theme flatland-theme fish-mode firebelly-theme fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit git-commit with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight espresso-theme erlang emmet-mode elm-mode elisp-slime-nav dumb-jump f dracula-theme dockerfile-mode docker json-mode tablist magit-popup docker-tramp json-snatcher json-reformat django-theme diminish diff-hl darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web web-completion-data company-statistics company-shell company-restclient restclient know-your-http-well company-quickhelp pos-tip column-enforce-mode color-theme-sanityinc-solarized color-identifiers-mode clues-theme clean-aindent-mode cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme bind-map bind-key badwolf-theme auto-yasnippet yasnippet auto-highlight-symbol auto-compile packed apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes alchemist s company dash elixir-mode pkg-info epl aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup color-theme-sanityinc-tomorrow))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
