@@ -2,6 +2,7 @@
 "                 VUNDLE CONFIGURATION                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
+filetype on                   " required for compatibility with Mac 
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -31,35 +32,22 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
-Plugin 'ervandew/supertab'
-Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
-Bundle 'vim-ruby/vim-ruby'
 Plugin 'bling/vim-bufferline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 
-"snipmate and its dependencies
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
 
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'blueshirts/darcula'
-Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic'
-Plugin 'carlosgaldino/elixir-snippets'
 Plugin 'kovisoft/slimv'
-Plugin 'mattreduce/vim-mix'
 Plugin 'elzr/vim-json'
 Plugin 'othree/xml.vim'
+Plugin 'dracula/vim'
 
 "
 " " All of your Plugins must be added before the following line
@@ -95,7 +83,7 @@ let g:syntastic_enable_elixir_checker = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             Airline                                        "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline\ 12
+set guifont=Fira\ Code\ 12
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -206,10 +194,8 @@ endif"
 
 syntax on
 set background=dark
-colorscheme Tomorrow-Night
-"colorscheme solarized
-"colorscheme badwolf "Cool very dark theme
-"colorscheme darcula "Jetbrain darkula theme
+colorscheme dracula
+" colorscheme Tomorrow-Night
 
 set mouse=a
 set ttymouse=xterm2
@@ -231,46 +217,7 @@ set directory=$HOME/.vim/swapfiles//
 " unix file format
 set fileformat=unix
 
-autocmd BufRead *.as set filetype=actionscript
-autocmd BufRead *.mxml set filetype=mxml
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           Disable arrows                                   "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           Custom commands                                  "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
-
-" Move to Next methods - Mac Keyboard - english layout
-nmap ∆ ]m
-nmap ˚ [m
-
-" Move to previous methods - Mac Keyboard - french layout
-nmap Ï ]m
-nmap È [m
-
-" Move line up/down in normal and insert mode - Mac Keyboard - english layout
-nnoremap Ô :m .+1<CR>==
-inoremap Ô <Esc>:m .+1<CR>==gi
-nnoremap  :m .-2<CR>==
-inoremap  <Esc>:m .-2<CR>==gi
-
-" Move line up/down in normal and insert mode - Mac Keyboard - english layout
-" Move line up in normal and insert mode
-nnoremap Í :m .+1<CR>==
-inoremap Í <Esc>:m .+1<CR>==gi
-nnoremap Ë :m .-2<CR>==
-inoremap Ë <Esc>:m .-2<CR>==gi
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       NerdTree Configuration                               "
@@ -286,20 +233,10 @@ nnoremap <F4> :NERDTreeToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_show_hidden=1
 set tags+=tags
-set tags+=gems.tags
 "unlet g:ctrlp_extensions
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 'r'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                       Commentary  Configuration                            "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" use gc to comment or uncomment a motion or a visual selection
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                       Vim Ruby Configuration                               "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-inoremap <leader>, <C-x><C-o>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                         Surround configuration                             "
@@ -316,4 +253,5 @@ nnoremap <C-t>   :tabnew<CR>
 inoremap <right> <Esc>gti
 inoremap <left>  <Esc>gTi
 inoremap <C-t>   <Esc>:tabnew<CR>
+
 
