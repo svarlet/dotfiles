@@ -2,6 +2,8 @@ autoload -U compinit
 compinit
 fpath=(~/zfunc $fpath)
 
+source ~/.zshenv
+
 alias a="alias"
 a rm="rm -i"
 a ls="ls -FG"
@@ -23,7 +25,7 @@ HISTFILE=~/.history
 HISTSIZE=1000
 SAVEHIST=1000
 
-source ~/.zsh/git-prompt/zshrc.sh
+source ~/.zsh/zsh-git-prompt/zshrc.sh
 
 autoload -U colors && colors
 host_color="green"
