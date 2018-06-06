@@ -30,7 +30,7 @@ Plugin 'gmarik/Vundle.vim'
 " " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
 
-Plugin 'bling/vim-airline'
+Plugin 'itchny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -81,34 +81,12 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_elixir_checker = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                             Airline                                        "
+"                             Lightline                                      "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=Fira\ Code\ 12
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show buffer number
-let g:airline#extensions#tabline#buffer_nr_show = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-" Use flat separators
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-" vim-bufferline should not print to the statusline as well
-let g:bufferline_echo = 0
-
+set guifont=Fira\ Code\ 14
+let g:lightline = {
+      \ 'colorscheme': 'Dracula',
+      \ }
 
 " Fixes a delay that happens when leaving insert mode
 set timeoutlen=50
@@ -247,11 +225,11 @@ set ttimeoutlen=1000
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       Mappings to handle tabs                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <right> gt
-nnoremap <left>  gT
+" nnoremap <right> gt
+" nnoremap <left>  gT
 nnoremap <C-t>   :tabnew<CR>
-inoremap <right> <Esc>gti
-inoremap <left>  <Esc>gTi
+" inoremap <right> <Esc>gti
+" inoremap <left>  <Esc>gTi
 inoremap <C-t>   <Esc>:tabnew<CR>
 
 
