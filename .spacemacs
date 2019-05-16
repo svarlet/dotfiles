@@ -357,6 +357,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
    alchemist-test-mode-highlight-tests t
    alchemist-mix-test-default-options '("--cover")
   ))
+  ;; TEMPORARY FIX FOR A BUG IN SPACELINE - ADDED JAN 14th 2019
+  ;; FOUND ON https://github.com/syl20bnr/spacemacs/issues/11784#issuecomment-452633754
+  (add-to-list 'configuration-layer-elpa-archives '("melpa-stable" . "stable.melpa.org/packages/"))
+  (add-to-list 'package-pinned-packages '(spaceline . "melpa-stable"))
+  (add-to-list 'package-pinned-packages '(spaceline-all-the-icons . "melpa-stable"))
+  (add-to-list 'package-pinned-packages '(all-the-icons . "melpa-stable"))
+  ;; END OF TEMPORARY FIX
 
 (defun dotspacemacs/user-config ()
   "Configuration function.
