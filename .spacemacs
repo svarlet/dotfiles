@@ -368,6 +368,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-to-list 'package-pinned-packages '(all-the-icons . "melpa-stable"))
   ;; END OF TEMPORARY FIX
 
+  (with-eval-after-load 'auto-highlight-symbol
+    (spacemacs/toggle-automatic-symbol-highlight-on)
+    (spacemacs/toggle-auto-fill-mode-on)
+    (spacemacs/toggle-mode-line-battery-on)
+    (spacemacs/toggle-indent-guide-globally-on)
+    (spacemacs/toggle-highlight-current-line-globally-off))
+  )
+
 (defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
