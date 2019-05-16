@@ -447,7 +447,10 @@ layers configuration."
               (lambda () (setq neo-persist-show t))))
 
   ;; neotree - when neotree opens, find current file and jumps to node
-  (setq neo-smart-open t)
+  ;; (setq neo-smart-open t)
+
+  (setq treemacs-width 50)
+  (setq treemacs-follow-mode -1)
 
   ;; set neotree theme to icons to enable the display of fancy icons in neotree
   (setq neo-theme 'icons)
