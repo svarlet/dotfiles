@@ -355,8 +355,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
    alchemist-test-display-compilation-output t
    alchemist-test-truncate-lines nil
    alchemist-test-mode-highlight-tests t
-   alchemist-mix-test-default-options '("--cover")
-  ))
+   alchemist-mix-command "/Users/sebastienvarlet/.asdf/shims/mix"
+   alchemist-iex-program-name "/Users/sebastienvarlet/.asdf/shims/iex"
+   alchemist-execute-command "/Users/sebastienvarlet/.asdf/shims/elixir"
+   alchemist-compile-command "/Users/sebastienvarlet/.asdf/shims/elixirc"
+   )
   ;; TEMPORARY FIX FOR A BUG IN SPACELINE - ADDED JAN 14th 2019
   ;; FOUND ON https://github.com/syl20bnr/spacemacs/issues/11784#issuecomment-452633754
   (add-to-list 'configuration-layer-elpa-archives '("melpa-stable" . "stable.melpa.org/packages/"))
