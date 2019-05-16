@@ -437,7 +437,7 @@ layers configuration."
   (global-set-key (kbd "C-SPC") 'company-complete)
 
   ;; neotree - force width
-  (setq neo-window-width 45)
+  ;; (setq neo-window-width 50)
 
   ;; neotree - fix to prevent it from opening twice sometimes
   (when neo-persist-show
